@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    <style> body { display:flex; justify-content:center; align-items:center; height:100vh; margin:0; background:#f0f0f0; } </style>
+</head>
+<body>
+<script>
+let pupilX, pupilY;
+let mouthHeight;
+
+function setup() {
+  createCanvas(400, 400);
+  // [웹사이트용 수정] 방문 시 자동 다운로드 방지를 위해 주석 처리함
+  // saveGif('my_캐리커쳐.gif', 600, {delay: 0, units: 'frames'}); 
+}
+
+function draw() {
+  if (keyIsPressed && (key === 'b' || key === 'B')) {
+    background(255); 
+  } else {
+    background(220); 
+  }
+
+  let eyeCenterX = width / 2 - 40;
+  let eyeCenterY = height / 2 - 30;
+  
+  let mouseDistX = map(mouseX, 0, width, eyeCenterX - 5, eyeCenterX + 5);
+  let mouseDistY = map(mouseY, 0, height, eyeCenterY - 5, eyeCenterY + 5);
+  
+  pupilX = constrain(mouseDistX, eyeCenterX - 5, eyeCenterX + 5);
+  pupilY = constrain(mouseDistY, eyeCenterY - 5, eyeCenterY + 5);
+  
+  mouthHeight = 40; 
+  if (keyIsPressed && key === ' ') {
+    mouthHeight = 60; 
+  }
+
+  let faceColor = color(255, 220, 180); 
+  fill(faceColor);
+  stroke(0); 
+  strokeWeight(2); 
+  ellipse(width / 2, height / 2, 200, 240); 
+
+  let hairColor = color(100, 70, 40); 
+  fill(hairColor);
+  noStroke(); 
+  arc(width / 2, height / 2 - 100, 250, 150, PI, TWO_PI); 
+  ellipse(width / 2 - 90, height / 2 - 50, 60, 80); 
+  ellipse(width / 2 + 90, height / 2 - 50, 60, 80); 
+
+  let scleraColor = color(255); 
+  fill(scleraColor);
+  stroke(0);
+  strokeWeight(1);
+  ellipse(width / 2 - 40, height / 2 - 30, 40, 30); 
+  ellipse(width / 2 + 40, height / 2 - 30, 40, 30); 
+
+  let eyeColor = color(0, 0, 0); 
+  fill(eyeColor);
+  ellipse(pupilX, pupilY, 15, 15); 
+  ellipse(pupilX + 80, pupilY, 15, 15); 
+
+  stroke(50); 
+  strokeWeight(3);
+  noFill();
+  ellipse(width / 2 - 40, height / 2 - 30, 50, 40); 
+  ellipse(width / 2 + 40, height / 2 - 30, 50, 40); 
+  line(width / 2 - 65, height / 2 - 30, width / 2 + 65, height / 2 - 30); 
+
+  let noseColor = color(255, 180, 150); 
+  fill(noseColor);
+  noStroke();
+  triangle(width / 2 - 10, height / 2 + 10,
+           width / 2 + 10, height / 2 + 10,
+           width / 2, height / 2 + 40); 
+
+  let mouthColor = color(180, 0, 0); 
+  fill(mouthColor);
+  stroke(0);
+  strokeWeight(1);
+  arc(width / 2, height / 2 + 70, 80, mouthHeight, 0, PI); 
+
+  fill(faceColor);
+  stroke(0);
+  strokeWeight(2);
+  ellipse(width / 2 - 120, height / 2, 30, 60); 
+  ellipse(width / 2 + 120, height / 2, 30, 60); 
+
+  stroke(0);
+  strokeWeight(2);
+  
+  if (mouseX < width / 2) {
+    fill(255, 0, 0); 
+  } else {
+    fill(0, 0, 255); 
+  }
+  
+  rect(width/2 - 150, height/2 + 130, 300, 100); 
+}
+</script>
+</body>
+</html>

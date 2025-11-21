@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025-1 Creative Coding Portfolio</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        p { color: #7f8c8d; margin-bottom: 30px; }
+        
+        /* 2x2 그리드 레이아웃 (요구사항: 1,4 / 2,3 배치) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2열 */
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 10px;
+        }
+        
+        h3 { margin: 10px 0; color: #333; }
+
+        iframe {
+            width: 100%;
+            height: 450px; /* 캔버스 크기에 맞춰 높이 설정 */
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Global Media - Creative Coding</h1>
+    <p>2025-1학기 p5.js 최종 포트폴리오</p>
+
+    <div class="grid-container">
+        <div class="card">
+            <h3>과제 #1: 정적 추상화</h3>
+            <iframe src="hw1.html" title="과제 1"></iframe>
+        </div>
+
+        <div class="card">
+            <h3>과제 #4: 동적 추상화 (애니메이션)</h3>
+            <iframe src="hw4.html" title="과제 4"></iframe>
+        </div>
+
+        <div class="card">
+            <h3>과제 #2: 정적 캐리커쳐</h3>
+            <iframe src="hw2.html" title="과제 2"></iframe>
+        </div>
+
+        <div class="card">
+            <h3>과제 #3: 인터랙티브 캐리커쳐</h3>
+            <iframe src="hw3.html" title="과제 3"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>
